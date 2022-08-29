@@ -1,6 +1,6 @@
-package com.example.demo.publisher.controller;
+package com.example.activemqpoc.publisher.controller;
 
-import com.example.demo.model.SystemMessage;
+import com.example.activemqpoc.model.SystemMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

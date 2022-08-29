@@ -1,6 +1,6 @@
-package com.example.demo.consumer.component;
+package com.example.activemqpoc.consumer.component;
 
-import com.example.demo.model.SystemMessage;
+import com.example.activemqpoc.model.SystemMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jms.annotation.JmsListener;
