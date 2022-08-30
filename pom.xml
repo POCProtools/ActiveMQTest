@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>activemapoc</artifactId>
+	<artifactId>message-event-registry-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>activeMQPOC</name>
 	<description>Demo project for Spring Boot - Active MQ Test</description>
