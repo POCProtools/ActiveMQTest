@@ -1,4 +1,4 @@
-package com.example.activemqpoc.config;
+package com.example.eventregistrypoc.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;

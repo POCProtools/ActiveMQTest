@@ -1,6 +1,6 @@
-package com.example.activemqpoc.publisher.controller;
+package com.example.eventregistrypoc.publisher;
 
-import com.example.activemqpoc.model.SurveyInfo;
+import com.example.eventregistrypoc.model.SurveyInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.amqp.core.AmqpTemplate;

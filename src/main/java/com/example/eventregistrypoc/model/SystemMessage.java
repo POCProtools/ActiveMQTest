@@ -1,4 +1,4 @@
-package com.example.activemqpoc.model;
+package com.example.eventregistrypoc.model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.example.activemqpoc;
+package com.example.eventregistrypoc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
