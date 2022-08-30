@@ -1,28 +1,25 @@
 package com.example.activemqpoc.publisher.controller;
 
-import java.util.concurrent.TimeUnit;
+import com.example.activemqpoc.model.SurveyInfo;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.core.Queue;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.example.activemqpoc.MessagingRabbitmqApplication;
-import com.example.activemqpoc.consumer.component.Receiver;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
+@Service
+public class Runner {
 
-@Component
-public class Runner implements CommandLineRunner {
+    @Autowired
+    private AmqpTemplate rabbitTemplate;
+    @Autowired
+    private Queue queue;
+    private static Logger logger = LogManager.getLogger(Runner.class.toString());
 
-    private final RabbitTemplate rabbitTemplate;
-    private final Receiver receiver;
-
-    public Runner(Receiver receiver, RabbitTemplate rabbitTemplate) {
-        this.receiver = receiver;
-        this.rabbitTemplate = rabbitTemplate;
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println("Sending message...");
-        rabbitTemplate.convertAndSend(MessagingRabbitmqApplication.topicExchangeName, "foo.bar.baz", "Hello from RabbitMQ!");
-        receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
+    // Add message to the queue
+    public void send(SurveyInfo surveyInfo) {
+        rabbitTemplate.convertAndSend(queue.getName(), surveyInfo);
+        logger.info("Sending Message to the Queue : " + surveyInfo.toString());
     }
 }
