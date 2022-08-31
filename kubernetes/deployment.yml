@@ -16,26 +16,30 @@ spec:
         - name: rabbitmq-famille-test-controller
           image: mailinenguyen/rabbitmq-famille-test-controller
           env :
-            - name: SPRING_RABBITMQ_HOST
-              value: "rabbitmq-test-poc-famille"
-            - name: SPRING_RABBITMQ_USERNAME
+            - name: RABBITMQ_HOST
+              value: "rabbitmq-poc-famille"
+            - name: RABBITMQ_PORT
+              value: "15672"
+            - name: RABBITMQ_VIRTUEL_HOST
+              value: "/"
+            - name: RABBITMQ_USERNAME
               value: "admin"
-            - name: SPRING_RABBITMQ_PASSWORD
+            - name: RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: rabbitmq-test-poc-famille
+                  name: rabbitmq-poc-famille
                   key: rabbitmq-password
-            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_ACKNOWLEDGE
+            - name: RABBITMQ_LISTENER_SIMPLE_ACKNOWLEDGE
               value: "true"
-            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_CONCURRENCY
+            - name: RABBITMQ_LISTENER_SIMPLE_CONCURRENCY
               value: "1"
-            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_PREFETCH
+            - name: RABBITMQ_LISTENER_SIMPLE_PREFETCH
               value: "1"
-            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_RETRY_ENABLED
+            - name: RABBITMQ_LISTENER_SIMPLE_RETRY_ENABLED
               value: "false"
-            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_RETRY_MAX_ATTEMPTS
+            - name: RABBITMQ_LISTENER_SIMPLE_RETRY_MAX_ATTEMPTS
               value: "3"
-            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_RETRY_MAX_INTERVAL
+            - name: RABBITMQ_LISTENER_SIMPLE_RETRY_MAX_INTERVAL
               value: "10000"
-            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_RETRY_MULTIPLIER
+            - name: RABBITMQ_LISTENER_SIMPLE_RETRY_MULTIPLIER
               value: "2"
