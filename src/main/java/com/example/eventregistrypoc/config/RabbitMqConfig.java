@@ -21,7 +21,7 @@ import org.springframework.util.ErrorHandler;
 @EnableRabbit
 @Configuration
 public class RabbitMqConfig {
-    @Value("${q.flowable-test}")
+    @Value("${rabbitmq.queue}")
     private String queueName;
     @Value("${rabbitmq.exchange}")
     private String exchange;
