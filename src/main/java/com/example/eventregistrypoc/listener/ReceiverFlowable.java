@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 
 // Respond to received messages
 @Component
-@RabbitListener(queues = "rabbitmq.queue", id = "listener")
-public class Receiver {
+@RabbitListener(queues = "flowable-test", id = "listener")
+public class ReceiverFlowable {
     //@RabbitListener is responsible to listen to the RabbitMQ queue for any incoming messages.
-    private static Logger logger = LogManager.getLogger(Receiver.class.toString());
+    private static Logger logger = LogManager.getLogger(ReceiverFlowable.class.toString());
     @RabbitHandler
     public void receiver(SurveyInfo surveyInfo) {
-        logger.info("MenuOrder listener invoked - Consuming Message with Survey Identifier : " + surveyInfo.getSurveyId());
+        logger.info("Flowable-test listener invoked - Consuming Message with Survey Identifier : " + surveyInfo.getSurveyId());
     }
 }

@@ -1,18 +1,41 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: activemqtest
+  name: rabbitmq-famille-test-controller
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: activemqtest
+      app: rabbitmq-famille-test-controller
   template:
     metadata:
       labels:
-        app: activemqtest
+        app: rabbitmq-famille-test-controller
     spec:
       containers:
-        - name: activemqtest
-          image: mailinenguyen/activemqtest
-
+        - name: rabbitmq-famille-test-controller
+          image: mailinenguyen/rabbitmq-famille-test-controller
+          env :
+            - name: SPRING_RABBITMQ_HOST
+              value: "rabbitmq-test-poc-famille"
+            - name: SPRING_RABBITMQ_USERNAME
+              value: "admin"
+            - name: SPRING_RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-test-poc-famille
+                  key: rabbitmq-password
+            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_ACKNOWLEDGE
+              value: "true"
+            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_CONCURRENCY
+              value: "1"
+            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_PREFETCH
+              value: "1"
+            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_RETRY_ENABLED
+              value: "false"
+            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_RETRY_MAX_ATTEMPTS
+              value: "3"
+            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_RETRY_MAX_INTERVAL
+              value: "10000"
+            - name: SPRING_RABBITMQ_LISTENER_SIMPLE_RETRY_MULTIPLIER
+              value: "2"
