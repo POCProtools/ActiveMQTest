@@ -15,6 +15,6 @@ public class ReceiverFlowable {
     private static Logger logger = LogManager.getLogger(ReceiverFlowable.class.toString());
     @RabbitHandler
     public void receiver(SurveyInfo surveyInfo) {
-        logger.info("Flowable-test listener invoked - Consuming Message with Survey Identifier : " + surveyInfo.getSurveyId());
+        logger.info("Start-event listener invoked - Consuming Message with Survey Identifier : " + surveyInfo.getSurveyId());
     }
 }

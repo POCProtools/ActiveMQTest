@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rabbitmq-famille-test-controller
+  name: rabbitmq-pqv-controller
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
