@@ -7,15 +7,15 @@ metadata:
 spec:
   tls:
     - hosts:
-        - rabbitmq-famille-test-controller.dev.insee.io
+        - rabbitmq-pqv-controller.dev.insee.io
   rules:
-    - host: rabbitmq-famille-test-controller.dev.insee.io
+    - host: rabbitmq-pqv-controller.dev.insee.io
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: rabbitmq-famille-test-controller
+                name: rabbitmq-pqv-controller
                 port:
                   number: 8080
