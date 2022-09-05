@@ -1,6 +1,7 @@
 package com.example.eventregistrypoc.publisher;
 
 import com.example.eventregistrypoc.model.SurveyInfo;
+import com.example.eventregistrypoc.model.TestObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -18,8 +19,12 @@ public class Runner {
     private static Logger logger = LogManager.getLogger(Runner.class.toString());
 
     // Add message to the queue
-    public void send(SurveyInfo surveyInfo) {
+    public void sendSurvey(SurveyInfo surveyInfo) {
         rabbitTemplate.convertAndSend(queue.getName(), surveyInfo);
         logger.info("Sending Message to the Queue : " + surveyInfo.toString());
+    }
+    public void sendTest(TestObject testObject) {
+        rabbitTemplate.convertAndSend(queue.getName(), testObject);
+        logger.info("Sending Test Message to the Queue : " );
     }
 }

@@ -1,6 +1,7 @@
 package com.example.eventregistrypoc.controller;
 
 import com.example.eventregistrypoc.model.SurveyInfo;
+import com.example.eventregistrypoc.model.TestObject;
 import com.example.eventregistrypoc.publisher.Runner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,8 +20,8 @@ public class RabbitMQController {
     @Autowired
     Runner rabbitMQSender;
     @PostMapping(value = "/sender")
-    public String producer(@RequestBody SurveyInfo surveyInfo) {
-        rabbitMQSender.send(surveyInfo);
-        return "Message sent to the RabbitMQ Queue Successfully";
+    public String producer(@RequestBody TestObject testObject) {
+        rabbitMQSender.sendTest(testObject);
+        return "Test Message sent to the RabbitMQ Queue Successfully";
     }
 }
