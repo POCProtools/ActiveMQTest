@@ -12,7 +12,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class TestObject {
     @JsonProperty
-    private String name;
+    private String startEventKeyValue;
+    @JsonProperty
+    private String nameObject;
     @JsonProperty
     private String type;
 
